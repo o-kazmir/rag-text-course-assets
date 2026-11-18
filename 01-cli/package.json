@@ -1,0 +1,33 @@
+{
+  "name": "rag-basics-cli",
+  "version": "1.0.0",
+  "scripts": {
+    "ask-llm": "tsx --env-file=.env src/01-ask-llm.ts",
+    "embeddings": "tsx --env-file=.env src/02-embeddings.ts",
+    "rag-by-hand": "tsx --env-file=.env src/03-rag-by-hand.ts",
+    "chunks": "tsx src/04-chunks.ts",
+    "memory-store": "tsx --env-file=.env src/05-memory-store.ts",
+    "index": "tsx --env-file=.env src/index-docs.ts",
+    "ask": "tsx --env-file=.env src/ask.ts",
+    "eval": "tsx --env-file=.env src/eval.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@langchain/classic": "^1.0.61",
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.4.1",
+    "@langchain/openai": "^1.8.4",
+    "@langchain/textsplitters": "^1.0.2",
+    "openai": "^7.59.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}

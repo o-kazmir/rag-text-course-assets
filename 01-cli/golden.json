@@ -1,0 +1,16 @@
+[
+  { "question": "Скільки днів оплачуваної відпустки на рік?", "source": "vacation.md" },
+  { "question": "За скільки днів треба подати заяву на відпустку?", "source": "vacation.md" },
+  { "question": "Чи потрібна довідка, якщо я захворів на один день?", "source": "sick-leave.md" },
+  { "question": "Куди писати, що я сьогодні не працюю через хворобу?", "source": "sick-leave.md" },
+  { "question": "Компанія оплачує коворкінг?", "source": "remote-work.md" },
+  { "question": "У який час я маю бути на звʼязку?", "source": "remote-work.md" },
+  { "question": "Що я роблю в перший робочий день?", "source": "onboarding.md" },
+  { "question": "Коли можна викочувати нову версію?", "source": "deploy.md" },
+  { "question": "Як швидко відкотити невдалий реліз?", "source": "deploy.md" },
+  { "question": "Скільки доплачують за тиждень чергування?", "source": "on-call.md" },
+  { "question": "Який максимальний розмір pull request?", "source": "code-review.md" },
+  { "question": "Скільки грошей є на курси й книжки?", "source": "learning.md" },
+  { "question": "Чи можна взяти собаку в офіс?", "source": null },
+  { "question": "Яка зарплата у senior-розробника?", "source": null }
+]

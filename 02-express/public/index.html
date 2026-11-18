@@ -1,0 +1,54 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Твоя Галера · асистент</title>
+<div id="chat" style="white-space: pre-wrap"></div>
+<form id="form">
+  <input id="question" placeholder="Ваше питання" size="50" autocomplete="off" />
+  <button>Надіслати</button>
+</form>
+
+<script type="module">
+  const chat = document.getElementById("chat");
+  const input = document.getElementById("question");
+  const history = [];
+
+  function addMessage(text = "") {
+    const p = document.createElement("p");
+    p.textContent = text;
+    return chat.appendChild(p);
+  }
+
+  document.getElementById("form").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question) return;
+    input.value = "";
+
+    addMessage("Ви: " + question);
+    const answerEl = addMessage();
+    const sourcesEl = addMessage();
+
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, history }),
+    });
+
+    // Події розділені порожнім рядком; незавершену подію лишаємо в буфері до наступної порції
+    const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+    let buffer = "";
+    for (let chunk = await reader.read(); !chunk.done; chunk = await reader.read()) {
+      const events = (buffer + chunk.value).split("\n\n");
+      buffer = events.pop();
+      for (const raw of events) {
+        const [, type, data] = raw.match(/^event: (.+)\ndata: (.+)$/);
+        const value = JSON.parse(data);
+        if (type === "token") answerEl.textContent += value;
+        if (type === "sources") sourcesEl.textContent = "Джерела: " + value.map((s) => `[${s.n}] ${s.title}`).join(", ");
+        if (type === "error") answerEl.textContent = value;
+      }
+    }
+
+    history.push({ role: "user", content: question }, { role: "assistant", content: answerEl.textContent });
+  });
+</script>
