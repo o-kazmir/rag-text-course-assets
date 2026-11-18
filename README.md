@@ -6,10 +6,10 @@ Complete, runnable code for the [«RAG з нуля на TypeScript»](https://de
 
 | Folder | Lessons | What it is |
 |--------|---------|------------|
-| [`01-cli/`](01-cli) | 4–7, 9 | Plain Node.js scripts, no web framework: RAG by hand on the OpenAI SDK, then LangChain.js, chunking, pgvector, a CLI assistant and a hit rate@k check |
-| [`02-express/`](02-express) | 8 | Web chat on Express with streaming (SSE) and conversation history |
-| [`03-nestjs/`](03-nestjs) | 10 | The same chat as a Nest.js service: providers, config, DTO validation, rate limiting |
-| [`docker-compose.yml`](docker-compose.yml) | 6 | PostgreSQL with pgvector, shared by all examples |
+| [`01-cli/`](01-cli) | 5–8, 10 | Plain Node.js scripts, no web framework: RAG by hand on the OpenAI SDK, then LangChain.js, chunking, pgvector, a CLI assistant and a hit rate@k check |
+| [`02-express/`](02-express) | 9 | Web chat on Express with streaming (SSE) and conversation history |
+| [`03-nestjs/`](03-nestjs) | 11 | The same chat as a Nest.js service: providers, config, DTO validation, rate limiting |
+| [`docker-compose.yml`](docker-compose.yml) | 7 | PostgreSQL with pgvector, shared by all examples |
 
 Inside the examples:
 
@@ -43,14 +43,14 @@ All examples use the same database, so index once and every example can search i
 
 | Command | Lesson | Script |
 |---------|--------|--------|
-| `npm run ask-llm` | 4 | Ask the model without RAG |
-| `npm run embeddings` | 4 | First embeddings and cosine similarity |
-| `npm run rag-by-hand -- "question"` | 4 | The whole RAG in one file, no framework |
-| `npm run chunks` | 5 | Split documents into chunks (no API key needed) |
-| `npm run memory-store` | 6 | Search with an in-memory vector store |
-| `npm run index` | 6 | Index `docs/` into pgvector (safe to re-run) |
-| `npm run ask -- "question"` | 7 | CLI assistant with sources |
-| `npm run eval` | 9 | hit rate@k on `golden.json` and "I don't know" checks |
+| `npm run ask-llm` | 5 | Ask the model without RAG |
+| `npm run embeddings` | 5 | First embeddings and cosine similarity |
+| `npm run rag-by-hand -- "question"` | 5 | The whole RAG in one file, no framework |
+| `npm run chunks` | 6 | Split documents into chunks (no API key needed) |
+| `npm run memory-store` | 7 | Search with an in-memory vector store |
+| `npm run index` | 7 | Index `docs/` into pgvector (safe to re-run) |
+| `npm run ask -- "question"` | 8 | CLI assistant with sources |
+| `npm run eval` | 10 | hit rate@k on `golden.json` and "I don't know" checks |
 
 ### 02-express
 
